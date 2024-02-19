@@ -3,6 +3,7 @@ node{
   def mavenHome= tool name: "maven3.9.6"
 
   try{
+    sendslacknotifications("STARTED")
 
     stage('CheckoutCode'){
         git branch: 'development', credentialsId: 'a15207fe-e84d-4f24-b33d-8bb0832777f7', url: 'https://github.com/supreethaakshay/maven-web-application.git'
@@ -64,5 +65,5 @@ def sendslacknotifications(String buildStatus = 'STARTED') {
   }
 
   // Send notifications
-  slackSend (color: colorCode, message: summary, channel: "#walmart-dev")
+  slackSend (color: colorCode, message: summary, channel: #walmart-dev)
 }
