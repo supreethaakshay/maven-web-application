@@ -1,6 +1,6 @@
 node{
 
-def mavenHome = tool name: "maven3.8.5"
+def mavenHome = tool name: "maven3.9.6"
 
 echo "Build number: ${env.BUILD_NUMBER}" 
 //echo "Job name is: ${env.JOB_NAME}"
@@ -69,7 +69,7 @@ def sendslacknotifications(String buildStatus = 'STARTED') {
   }
 
   // Send notifications
-  slackSend (color: colorCode, message: summary, channel: "#walmart")
+  slackSend (color: colorCode, message: summary, channel: "#walmart-dev")
 }
 
 
